@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<body>
+
+		<meta charset="utf-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Dataphi Lab</title>
+      <link href="./css/bootstrap.min.css" rel="stylesheet">
+      <script src ="./js/jquery.js"></script>
+      <script src ="./js/bootstrap.min.js"></script> 
+      <link href="./css/style.css" rel="stylesheet" type="text/css" media="all"/>
+
+
+
+<style>
+b{
+  font-weight: bold;
+}
+</style>
+
+<nav class="navbar navbar-inverse color-red navbar-static-top" style="background-color:#E54C47; color:white; height:10%;">
+  <div class="container-fluid" >
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header" >
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand"  href="index.php" style="color:white;">Dataphi Lab</a>
+    </div>
+
+      <!--left_side Menu start-->
+
+      <ul class="nav navbar-nav navbar-right" >
+        <li><a href="home.html" style="color:white;">Home</a></li>
+        <li><a href="patientList.html" style="color:white;">Patient List</a></li>
+        <li>
+         
+          </li>        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<body >
+  <div style="width:100%; height:100%;">
+   <div class="container" >
+      <div class="row">
+      <div class="col-md-6 col-md-offset-3" >
+        <div class="panel panel-login" >
+          <div class="panel-heading">
+            <div class="row">
+              
+        
+               
+           <div style="border:3px solid #E54C47;">
+              <div id="feedback">
+               <div class="container">
+                <div class="col-md-5">
+                  <div class="form-area">  
+              <form onsubmit="add()" role="form">
+                <br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center; color:#E54C47;"><font size="5"><u>Patient Entry Form</u></font></h3>
+              <table style="margin-left:15%;">
+              <div class="form-group">
+                <tr><td width="40%" height="30" ><b> First Name: </b></td><td><input type="text"  id="fname" name="fname" style="border-color:#E54C47;" pattern="[A-Za-z]+" oninvalid="this.setCustomValidity('Enter only alphabets.')" required><span style="color:#E54C47;">*</span></td></tr>
+
+              </div>
+
+              <div class="form-group">
+                 <tr><td width="40%" height="30"> <b>Last Name: </b></td> <td><input type="text"  id="lname" name="lname"  style="border-color:#E54C47;" pattern="[A-Za-z]+" oninvalid="this.setCustomValidity('Enter only alphabets.')" required><span style="color:#E54C47;">*</span></td></tr>
+              </div>
+
+              <div class="form-group">
+                 <tr><td width="40%" height="30"> <b>Age: </b></td> <td><input type="number"  id="age" name="age"  style="border-color:#E54C47;" min="1" max="110" required><span style="color:#E54C47;">*</span></td></tr>
+              </div>
+
+              <div class="form-group">
+                 <tr><td width="40%" height="30"> <b>DOB: </b></td> <td><input type="date"  id="dob" name="dob"  style="border-color:#E54C47;"required><span style="color:#E54C47;">*</span></td></tr>
+              </div>
+
+            <div class="form-group">
+                <tr><td width="40%" height="30"> <b>Gender:</b> </td><td><select  name="type" id="gender" style="border-color:#E54C47;" required>
+                <option value="" style="color:#E54C47;" disabled selected>Select</option>
+                <option value = "Male">Male</option>
+                <option value = "Female">Female</option>
+                </select> <span style="color:#E54C47;">*</span></td></tr>
+            </div>
+
+            <div class="form-group">
+                  <tr><td width="40%" height="30"><b>Contact no: </b></td> <td><input type="text"  id="contact" name="contact" style="border-color:#E54C47;" oninvalid="this.setCustomValidity('Enter 10 digit phone no.')" pattern="[0-9]{10}" required><span style="color:#E54C47;">*</span></td></tr>
+              </div>
+
+
+            <div class="form-group">
+                   <tr><td width="40%" height="30"><b>Comments:</b></td>
+                   <td></br><textarea  type="textarea" style="resize:none; height:300px; border-color:#E54C47;" id="comment" placeholder="Text area" maxlength="100"></textarea></td></tr>
+                        <span class="help-block"><p id="characterLeft" class="help-block "></span>                    
+            </div>
+            </table>
+        </br><input type="submit" id="submit" value="Submit" class="pull-center" style="background-color:#E54C47; margin-left:30%;"></br></br>
+        </form>
+        </div>
+        </div>
+        </div> 
+        </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+</div>
+</div>
+<div style="margin-bottom:1%; height:7%; width: 100%; background-color:#E54C47;">
+</br>
+  <p style="text-align:center;color:white;">&copy; Dataphi Lab</p>
+</div>
+</div>
+
+  <script>
+window.onload = function()
+{
+	document.getElementById('dob').max = new Date().toISOString().substring(0, 10);
+}
+
+var a = function() { return 9;} + 3;
+
+function add(){
+
+  var fname=document.getElementById("fname").value;
+  var lname=document.getElementById("lname").value;
+  var age=document.getElementById("age").value;
+  var dob=document.getElementById("dob").value;
+  var contact=document.getElementById("contact").value;
+  var gender=document.getElementById("gender").value;
+  var comment=document.getElementById("comment").value;
+
+    var obj = {
+    	"fname":fname,
+    	"lname":lname,
+    	"age":age,
+    	"dob":dob,
+    	"contact":contact,
+    	"gender":gender,
+    	"comment":comment
+    };
+
+    var lastid=1;
+    if(localStorage.getItem("id")==null)
+      localStorage.setItem("id","1");
+    else{
+      var temp=localStorage.getItem("id");
+      lastid=parseInt(temp)+1;
+      localStorage.setItem("id",lastid+"");
+    }
+    localStorage.setItem(lastid+"",JSON.stringify(obj));
+    alert("Data submitted successfully");
+
+    document.getElementById("fname").value = "";
+  	document.getElementById("lname").value = "";
+  	document.getElementById("age").value = "";
+  	document.getElementById("dob").value = "";
+  	document.getElementById("contact").value = "";
+  	document.getElementById("gender").value = "";
+  	document.getElementById("comment").value = "";
+}
+
+</script>
+
+</body>
+</html>
